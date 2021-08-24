@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Board</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/board.css" />
+</head>
+<body>
+	<div>
+		<p
+			th:text="'Hello, welcome to Borad Id:'+${board.id} +' Player:['+ ${currentPlayer} +']!'" />
+		<p th:text="'Next move:['+ ${board.nextPlayer} +']!'" />
+		<a th:href="@{'/board?board_id='+${board.id}+'&amp;player=top'}"
+			th:target="${#strings.equals(currentPlayer,'TOP')?'':'_blank'}">TOP
+			<span th:if="${#strings.equals(currentPlayer,'TOP')}">(reload)</span>
+		</a><br /> <a
+			th:href="@{'/board?board_id='+${board.id}+'&amp;player=bottom'}"
+			th:target="${#strings.equals(currentPlayer,'BOTTOM')?'':'_blank'}">BOTTOM
+			<span th:if="${#strings.equals(currentPlayer,'BOTTOM')}">(reload)</span>
+		</a>
+		<table>
+			<tr>
+				<td>Final</td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=top&amp;house=6'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'TOP')&amp;&amp;board.topPlayer[5]&gt;0}">6</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=top&amp;house=5'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'TOP')&amp;&amp;board.topPlayer[4]&gt;0}">5</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=top&amp;house=4'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'TOP')&amp;&amp;board.topPlayer[3]&gt;0}">4</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=top&amp;house=3'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'TOP')&amp;&amp;board.topPlayer[2]&gt;0}">3</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=top&amp;house=2'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'TOP')&amp;&amp;board.topPlayer[1]&gt;0}">2</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=top&amp;house=1'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'TOP')&amp;&amp;board.topPlayer[0]&gt;0}">1</a></td>
+			</tr>
+			<tr>
+				<td rowspan="2" class="RED" th:text="${board.topPlayer[6]}"></td>
+				<td class="RED" th:text="${board.topPlayer[5]}"></td>
+				<td class="RED" th:text="${board.topPlayer[4]}"></td>
+				<td class="RED" th:text="${board.topPlayer[3]}"></td>
+				<td class="RED" th:text="${board.topPlayer[2]}"></td>
+				<td class="RED" th:text="${board.topPlayer[1]}"></td>
+				<td class="RED" th:text="${board.topPlayer[0]}"></td>
+				<td rowspan="2" class="BLUE" th:text="${board.bottomPlayer[6]}"></td>
+			</tr>
+			<tr>
+				<td class="BLUE" th:text="${board.bottomPlayer[0]}"></td>
+				<td class="BLUE" th:text="${board.bottomPlayer[1]}"></td>
+				<td class="BLUE" th:text="${board.bottomPlayer[2]}"></td>
+				<td class="BLUE" th:text="${board.bottomPlayer[3]}"></td>
+				<td class="BLUE" th:text="${board.bottomPlayer[4]}"></td>
+				<td class="BLUE" th:text="${board.bottomPlayer[5]}"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=bottom&amp;house=1'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'BOTTOM')&amp;&amp;board.bottomPlayer[0]&gt;0}">1</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=bottom&amp;house=2'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'BOTTOM')&amp;&amp;board.bottomPlayer[1]&gt;0}">2</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=bottom&amp;house=3'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'BOTTOM')&amp;&amp;board.bottomPlayer[2]&gt;0}">3</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=bottom&amp;house=4'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'BOTTOM')&amp;&amp;board.bottomPlayer[3]&gt;0}">4</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=bottom&amp;house=5'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'BOTTOM')&amp;&amp;board.bottomPlayer[4]&gt;0}">5</a></td>
+				<td><a
+					th:href="@{'/apply?board_id='+${board.id}+'&amp;player=bottom&amp;house=6'}"
+					th:if="${#strings.equals(board.nextPlayer,currentPlayer)&amp;&amp;#strings.equals(currentPlayer,'BOTTOM')&amp;&amp;board.bottomPlayer[5]&gt;0}">6</a></td>
+				<td>Final</td>
+
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

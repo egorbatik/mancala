@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: com.bol.egorbatik.mancala.service.BoardServiceImplTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in com.bol.egorbatik.mancala.service.BoardServiceImplTest
+initializationError  Time elapsed: 0.004 s  <<< ERROR!
+org.junit.runners.model.InvalidTestClassError: 
+Invalid test class 'com.bol.egorbatik.mancala.service.BoardServiceImplTest':
+  1. No runnable methods
+
